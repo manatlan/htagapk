@@ -15,9 +15,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Patch AndroidManifest.tmpl.xml
+      - name: Show TREE
         run: |
-          tree
+          tree ~/.
 
       - name: Build with Buildozer
         uses: ArtemSBulgakov/buildozer-action@v1
