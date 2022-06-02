@@ -12,6 +12,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Patch AndroidManifest.tmpl.xml
+        run: |
+          sed -i 's/<application android:label/<application android:usesCleartextTraffic="true" android:label/g' .buildozer/android/platform/build/dists/testhtagapk/templates/AndroidManifest.tmpl.xml
+
       - name: Build with Buildozer
         uses: ArtemSBulgakov/buildozer-action@v1
         id: buildozer
