@@ -2,6 +2,9 @@ name: Build
 on:
   push:
 
+# Doc P4A
+# https://github.com/Android-for-Python/Android-for-Python-Users#changing-buildozerspec
+
 jobs:
   # Build job. Builds app for Android with Buildozer
   build-android:
@@ -12,6 +15,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Patch AndroidManifest.tmpl.xml
+        run: |
+          tree
+
       - name: Build with Buildozer
         uses: ArtemSBulgakov/buildozer-action@v1
         id: buildozer
@@ -20,8 +27,9 @@ jobs:
           buildozer_version: stable
 
       - name: Patch AndroidManifest.tmpl.xml
+        # sed -i 's/<application android:label/<application android:usesCleartextTraffic="true" android:label/g' .buildozer/android/platform/build/dists/testhtagapk/templates/AndroidManifest.tmpl.xml
         run: |
-          sed -i 's/<application android:label/<application android:usesCleartextTraffic="true" android:label/g' .buildozer/android/platform/build/dists/testhtagapk/templates/AndroidManifest.tmpl.xml
+          tree
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
