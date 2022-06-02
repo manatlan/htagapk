@@ -17,7 +17,7 @@ jobs:
 
       - name: Show TREE
         run: |
-          tree ~/.
+          tree -a ~/.
 
       - name: Build with Buildozer
         uses: ArtemSBulgakov/buildozer-action@v1
@@ -29,7 +29,7 @@ jobs:
       - name: Patch AndroidManifest.tmpl.xml
         # sed -i 's/<application android:label/<application android:usesCleartextTraffic="true" android:label/g' .buildozer/android/platform/build/dists/testhtagapk/templates/AndroidManifest.tmpl.xml
         run: |
-          tree ~/.
+          tree -a ~/.
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
