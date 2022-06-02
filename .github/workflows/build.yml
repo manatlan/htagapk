@@ -2,8 +2,7 @@ name: Build
 on:
   push:
 
-# Doc P4A
-# https://github.com/Android-for-Python/Android-for-Python-Users#changing-buildozerspec
+permissions: read-all|write-all
 
 jobs:
   # Build job. Builds app for Android with Buildozer
@@ -15,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         
-      - name: Build with Buildozer1
+      - name: Build with Buildozer (build before patch)
         uses: ArtemSBulgakov/buildozer-action@v1
         id: buildozer1
         with:
@@ -30,7 +29,7 @@ jobs:
         run: |
           sed -i 's/<application android:label/<application android:usesCleartextTraffic="true" android:label/g' /home/runner/./work/htagapk/htagapk/app/.buildozer/android/platform/build-armeabi-v7a/dists/testhtagapk/templates/AndroidManifest.tmpl.xml
 
-      - name: Build with Buildozer2
+      - name: Build with Buildozer (build after patch)
         uses: ArtemSBulgakov/buildozer-action@v1
         id: buildozer2
         with:
