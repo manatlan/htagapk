@@ -27,7 +27,9 @@ jobs:
 
       - name: Patch AndroidManifest.tmpl.xml
         run: |
-          sed -i 's/<application android:label/<application android:usesCleartextTraffic="true" android:label/g' /home/runner/./work/htagapk/htagapk/app/.buildozer/android/platform/build-armeabi-v7a/dists/testhtagapk/templates/AndroidManifest.tmpl.xml
+          sed -i 's/<application android:label/<application android:usesCleartextTraffic="true" android:label/g' /github/workspace/app/.buildozer/android/platform/build-armeabi-v7a/dists/testhtagapk/templates/AndroidManifest.tmpl.xml
+          
+        # sed -i 's/<application android:label/<application android:usesCleartextTraffic="true" android:label/g' /home/runner/./work/htagapk/htagapk/app/.buildozer/android/platform/build-armeabi-v7a/dists/testhtagapk/templates/AndroidManifest.tmpl.xml
 
       - name: Build with Buildozer (build after patch)
         uses: ArtemSBulgakov/buildozer-action@v1
