@@ -29,7 +29,7 @@ jobs:
       - name: Patch AndroidManifest.tmpl.xml
         # sed -i 's/<application android:label/<application android:usesCleartextTraffic="true" android:label/g' .buildozer/android/platform/build/dists/testhtagapk/templates/AndroidManifest.tmpl.xml
         run: |
-          tree
+          tree ~/.
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
