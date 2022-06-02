@@ -2,7 +2,7 @@ name: Build
 on:
   push:
 
-permissions: read-all|write-all
+permissions: write-all
 
 jobs:
   # Build job. Builds app for Android with Buildozer
