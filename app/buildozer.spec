@@ -14,6 +14,9 @@ orientation = portrait
 fullscreen = 0
 android.arch = armeabi-v7a
 
+# (list) Permissions
+android.permissions = INTERNET
+
 # (str) Filename to the hook for p4a
 p4a.hook = p4a/hook.py
 
