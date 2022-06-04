@@ -28,10 +28,7 @@ buildozer android debug deploy run
 
 ## Github action
 
-The simplest one !
-
-Fork the repo, put you "htag app" in the `app/main.py` (main file should be named `main.py`), commit.
-On githup, the "Actions" will produce a "package" (zip containing the apk) in the github action > artifacts panel.
+The simplest one ! Any changes to the repo will run a **Github Action**, which will produce a "package" (zip containing the apk) in the github action > artifacts panel. (after 10 to 12 minutes)
 
 
 **`**NEXTSOON**`**
