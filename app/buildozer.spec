@@ -8,11 +8,14 @@ source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
 
 version = 0.1
-requirements = python3,kivy,starlette,uvicorn,htag,htbulma
+requirements = python3,kivy,tornado,htag
 
 orientation = portrait
 fullscreen = 0
 android.arch = armeabi-v7a
+
+# (str) Filename to the hook for p4a
+p4a.hook = p4a/hook.py
 
 # iOS specific
 ios.kivy_ios_url = https://github.com/kivy/kivy-ios

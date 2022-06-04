@@ -2,9 +2,7 @@ from htag import Tag
 import htbulma as b
 
 
-
 ALLTAGS = ["banana", "apple", "pear", "peach", "melon", "cherry", "plum"]
-
 
 class MyTabs(b.Tabs):  # inherit
     def init(self):
@@ -102,8 +100,6 @@ class Page(Tag):
 # r=BrowserHTTP( Page )
 # r=WebHTTP( Page )
 # r=ChromeApp( Page )
-   
 
-from androidapp import AndroidApp
-r=AndroidApp( Page )
-r.run()
+from htag.runners import AndroidApp
+r=AndroidApp( Page ).run()
