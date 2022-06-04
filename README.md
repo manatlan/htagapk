@@ -18,10 +18,11 @@ There are 2 recipes, to build the apk : **locally** or using **github action**
 You'll need to have a linux host, and you will need to install [kivy](https://kivy.org/) and [buildozer](https://buildozer.readthedocs.io/en/latest/).
 
 Download the repo, open a console:
-'''
+
+```
 cd app
 buildozer android debug deploy run
-'''
+```
 
 **`**NEXTSOON**`**
 
