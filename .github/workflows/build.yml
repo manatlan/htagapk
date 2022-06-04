@@ -14,30 +14,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         
-      - name: Build with Buildozer (build before patch)
+      - name: Build with Buildozer
         uses: ArtemSBulgakov/buildozer-action@v1
-        id: buildozer1
+        id: buildozer
         with:
           workdir: ./app
           buildozer_version: stable
-
-#      - name: Patch AndroidManifest.tmpl.xml
-#        run: |
-#          tree -af ~/.
-
-      - name: Patch AndroidManifest.tmpl.xml
-        run: |
-          sed -i 's/<application android:label/<application android:usesCleartextTraffic="true" android:label/g' /github/workspace/app/.buildozer/android/platform/build-armeabi-v7a/dists/testhtagapk/templates/AndroidManifest.tmpl.xml
-          
-        # sed -i 's/<application android:label/<application android:usesCleartextTraffic="true" android:label/g' /home/runner/./work/htagapk/htagapk/app/.buildozer/android/platform/build-armeabi-v7a/dists/testhtagapk/templates/AndroidManifest.tmpl.xml
-
-      - name: Build with Buildozer (build after patch)
-        uses: ArtemSBulgakov/buildozer-action@v1
-        id: buildozer2
-        with:
-          workdir: ./app
-          buildozer_version: stable
-
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
