@@ -12,7 +12,7 @@ requirements = python3,kivy,tornado,htbulma,htag
 
 orientation = portrait
 fullscreen = 0
-android.arch = armeabi-v7a
+android.arch = arm64-v8a
 
 # (list) Permissions
 android.permissions = INTERNET
