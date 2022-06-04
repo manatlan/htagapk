@@ -1,8 +1,46 @@
 # htagapk
 
-** IN PROGRESS **
+This is the "build apk method" for an [HTag app](https://github.com/manatlan/htag)
+
+It uses the [AndroidApp runner](https://manatlan.github.io/htag/runners/), based on [kivy](https://kivy.org/) and [tornado](https://www.tornadoweb.org/en/stable/).
+
+Your application must use the **AndroidApp** like this :
+
+```python
+from htag.runners import AndroidApp
+AndroidApp( Page ).run()
+```
+
+There are 2 recipes, to build the apk : **locally** or using **github action**
+
+## Locally
+
+You'll need to have a linux host, and you will need to install [kivy](https://kivy.org/) and [buildozer](https://buildozer.readthedocs.io/en/latest/).
+
+Download the repo, open a console:
+'''
+cd app
+buildozer android debug deploy run
+'''
+
+**`**NEXTSOON**`**
+
+## Github action
+
+The simplest one !
+
+Fork the repo, put you "htag app" in the `app/main.py` (main file should be named `main.py`), commit.
+On githup, the "Actions" will produce a "package" (zip containing the apk) in the github action > artifacts panel.
+
+
+**`**NEXTSOON**`**
+
+
 <details>
-  <summary>Urls ideas</summary>
+  <summary>Urls inspirations</summary>
+  
+  help for modify androidmanifest : https://github.com/ArtemSBulgakov/buildozer-action/issues/20
+  
   github actions doc : https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses
 
   P4A docs : https://github.com/Android-for-Python/Android-for-Python-Users#changing-buildozerspec
