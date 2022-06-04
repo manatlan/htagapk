@@ -89,17 +89,14 @@ class Page(Tag):
         # yield "b"
         print("=====+=========ù*******",obj)
 
-
-
-
 # from htag.runners import *
-# r=GuyApp( Page )
-# r=PyWebWiew( Page )
-# r=BrowserStarletteHTTP( Page )
-# r=BrowserStarletteWS( Page )
-# r=BrowserHTTP( Page )
-# r=WebHTTP( Page )
-# r=ChromeApp( Page )
+# GuyApp( Page ).run()
+# PyWebWiew( Page ).run()
+# BrowserStarletteHTTP( Page ).run()
+# BrowserStarletteWS( Page ).run()
+# BrowserHTTP( Page ).run()
+# WebHTTP( Page ).run()
+# ChromeApp( Page ).run()
 
 from htag.runners import AndroidApp
-r=AndroidApp( Page ).run()
+AndroidApp( Page ).run()

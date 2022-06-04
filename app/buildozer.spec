@@ -8,7 +8,7 @@ source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
 
 version = 0.1
-requirements = python3,kivy,tornado,htag
+requirements = python3,kivy,tornado,htbulma,htag
 
 orientation = portrait
 fullscreen = 0
