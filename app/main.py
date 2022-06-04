@@ -5,7 +5,8 @@ import htbulma as b
 ALLTAGS = ["banana", "apple", "pear", "peach", "melon", "cherry", "plum"]
 
 class MyTabs(b.Tabs):  # inherit
-    def init(self):
+    def __init__(self,**a):
+        super().__init__(**a)
         self.addTab("P1", "I'm the page1")
         self.addTab("P2", "Currently, I am the page2 !")
 
@@ -87,7 +88,7 @@ class Page(Tag):
     def doit(self,obj):
         # yield "a"
         # yield "b"
-        print("=====+=========ù*******",obj)
+        print("=====+=========Ã¹*******",obj)
 
 # from htag.runners import *
 # GuyApp( Page ).run()
