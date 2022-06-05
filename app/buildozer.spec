@@ -1,21 +1,21 @@
 [app]
 
-title = Test htag App                                 # <- adapt here
-package.name = testhtagapk                            # <- adapt here
-package.domain = org.test                             # <- adapt here
+title = Test htag App
+package.name = testhtagapk
+package.domain = org.test
 
 source.dir = .
-source.include_exts = py,png,jpg                      # <- adapt here
+source.include_exts = py,png,jpg
 
 version = 0.1
-requirements = python3,kivy,tornado,htbulma,htag      # <- adapt here
+requirements = python3,kivy,tornado,htbulma,htag
 
 orientation = portrait
 fullscreen = 0
 android.arch = arm64-v8a
 
 # (list) Permissions
-android.permissions = INTERNET                        # <- adapt here
+android.permissions = INTERNET
 
 # (str) Filename to the hook for p4a
 p4a.hook = p4a/hook.py
