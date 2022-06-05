@@ -15,25 +15,29 @@ There are 2 recipes, to build the apk : **locally** or using **github action**
 
 ## Locally
 
-You'll need to have a linux host, and you will need to install [kivy](https://kivy.org/) and [buildozer](https://buildozer.readthedocs.io/en/latest/).
+You'll need to have a linux host, and you will need to install [kivy](https://kivy.org/) and [buildozer](https://buildozer.readthedocs.io/en/latest/), and [adb tools](https://www.xda-developers.com/install-adb-windows-macos-linux/).
 
-Download the repo, open a console:
+Download the repo, plug your phone (with a good usb cable), and in console:
 
 ```
 cd app
 buildozer android debug deploy run
 ```
 
-**`**NEXTSOON**`**
+The app should start on your phone ...
+
 
 ## Github action
 
-The simplest one ! Any changes to the repo will run a **Github Action**, which will produce a "package" (zip containing the apk) in the github action > artifacts panel. (after 10 to 12 minutes)
+The simplest one ! Any changes to the repo will run a **Github Action**, which will produce a "package" (zip containing the apk) in the [github action](actions) > artifacts panel. (after 10 to 12 minutes)
 
 (thanks to the marvellous github action : https://github.com/ArtemSBulgakov/buildozer-action !)
 
 **`**NEXTSOON**`**
 
+## Test the apk/online
+
+[You can test the generated apk here !](https://appetize.io/app/70yxx4a32qcq1v0m00b12fm68w?device=pixel6&osVersion=12.0&scale=75)
 
 <details>
   <summary>Urls inspirations</summary>
