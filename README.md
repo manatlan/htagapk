@@ -39,7 +39,7 @@ The simplest one ! Any changes to the repo will run a **Github Action**, which w
 
 ## Test the apk/online
 
-  * [You can test the generated apk on appetize.io !](https://appetize.io/app/70yxx4a32qcq1v0m00b12fm68w?device=pixel6&osVersion=12.0&scale=75)
+  * [You can test the generated apk on appetize.io !](https://appetize.io/app/vvde3gxe2mmhw31twvwjm71494?device=pixel6&osVersion=12.0&scale=75). Or you can download the apk (find it in a "package.zip", downloadable from github action builds), and test on your phone.
   * You can test, the same app, in a web context (with **WebHTPP runner**) : https://htag.glitch.me/?app=c99
   * And, you can test it, in a pyscript context (with **PyScript runner**) : https://raw.githack.com/manatlan/htag/main/examples/pyscript_htbulma.html (just pure html !(no server side))
 
