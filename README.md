@@ -1,5 +1,7 @@
 # Recipes to build an android/apk from an HTag app
 
+<img src="app/p4a/htag.png" width="100" height="100">
+
 This is the **build apk method** for an [HTag app](https://github.com/manatlan/htag)
 
 It uses the [AndroidApp runner](https://manatlan.github.io/htag/runners/#androidapp), based on [kivy](https://kivy.org/) and [tornado](https://www.tornadoweb.org/en/stable/).
