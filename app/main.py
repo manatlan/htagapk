@@ -1,103 +1,81 @@
 from htag import Tag
 import htbulma as b
+import asyncio,html
 
+"""
+And here : the ultimate goal of htag ...
 
-ALLTAGS = ["banana", "apple", "pear", "peach", "melon", "cherry", "plum"]
+You can develop your own htag's components, and create your own UI Toolkit.
+And start to build complex app, here is an example using "htbulma"
+(a set of components, I use/develop on an other side )
 
-class MyTabs(b.Tabs):  # inherit
-    def __init__(self,**a):
-        super().__init__(**a)
-        self.addTab("P1", "I'm the page1")
-        self.addTab("P2", "Currently, I am the page2 !")
+"""
 
-class Page(Tag):
+class App(Tag.body):
+    """Build and use your own UI components"""
+    
+    imports = b.ALL  # IRL, you don't need this line
+    
     def init(self):
-        self.select=2
-        self.disabled=False
-        self.ll = [(i + 1, i + 1, i + 1, i + 1, i + 1) for i in range(33)]
-        self.mbox = b.MBox( self )
-        self.toast = b.Toaster( self )
+        self["style"]="overflow-y:auto !important"
+        self.mbox = b.MBox(self) # declare the 'service' mbox
+        self.toast = b.Toaster(self) # declare the 'service' toaster
+        self.code = Tag.pre("select a file")
+        
+        nav = b.Nav("MyApp")    # declare the nav bar
+        nav.addEntry("mbox",    lambda: self.mbox.show("hello"))  # declare an entry in the nav bar
+        nav.addEntry("confirm", lambda: self.mbox.confirm("Sure ?",ok=self.action))  # declare an entry in the nav bar
+        nav.addEntry("prompt",  lambda: self.mbox.prompt("What is your name ?","",ok=self.action))  # declare an entry in the nav bar
 
+        self.select=1
+        fields=b.Fields()
+        options=[1,2,3]
+        fields.addField("radio",      b.Radio(self.select, options, onchange=self.showvalue))
+        fields.addField("sb",         b.SelectButtons(self.select, options, onchange=self.showvalue) )
+        fields.addField("select",     b.Select(self.select, options, onchange=self.showvalue) )
+        fields.addField("cb",         b.Checkbox( False, "Just do it", onchange=self.showvalue))
+        fields.addField("input",      b.Input("hello", onchange=self.showvalue))
+        fields.addField("input date", b.Input(None,_type="date", onchange=self.showvalue) )
+        fields.addField("text area",  b.Textarea("world",_rows=2, onchange=self.showvalue) )
+        fields.addField("range",      b.Range(42,_min=0,_max=100, onchange=self.showvalue) )
 
-        group1=Tag.div()
-        group1<=b.VBox()
-        group1<=b.HBox( b.Button("hello"), b.Button("hello", _class="is-success") )
-        group1<=b.HBox( b.Button("hello"), b.Button("hello", _class="is-small") )
-        group1<=b.Tags( ["pear","plum"], ALLTAGS)
-        group1<=b.Checkbox( False, "Just do it").onchange(self.onchange)
-        group1<=b.Button("aff modal",_onclick=self.bind.affmodal())
-        group1<=b.Button("aff toast",_onclick=self.bind.afftoast())
-        group1<=b.Input("input text").onchange(self.onchange)
-        group1<=b.Input("input passwd", type="password").onchange(self.onchange)
-        group1<=b.Textarea("text area").onchange(self.onchange)
-        group1<=b.Range(42,_min=0,_max=100).onchange(self.onchange)
-        group1<=b.Content( "<h1>Hello</h1>" )
-        group1<=b.Progress()
-
-
-        group2=Tag.div()
-        # #=============== selectors
-        group2<=b.TabsHeader(self.select, [1, 2, 3])
-        group2<=b.Radio(self.select, [1, 2, 3])
-        group2<=b.SelectButtons(self.select, [1, 2, 3], onchange=self.doit )
-        group2<=b.Select(self.select, [1, 2, 3])
-        # # # #===============
-
-
-        table = b.Table(self.ll, cols=list("abcde"), pageSize=10, pageIndex=0)
-        split=b.HSplit( group2, table , sizes=[30,70])
-
-        def showFile(n):
-            self.toast.show( n, 1000 )
-
-        commons={}
-        f=b.Fields()
-        f.addField("Name", b.Input("mamamam",**commons))
-        f.addField("Surname", b.Input("kookokko",**commons), "not mine!")
-        f.addField("Sex", b.Radio(1,[1,2,3],**commons))
-        f.addField("Other", [b.Select(1,[1,2,3],**commons), b.Select(None,[None,1,2,3],**commons) ])
-        f.addField("Address", b.Textarea("",_rows="2",**commons))
-        f.addField("Size", b.Range(10,_min=0, _max=100, **commons))
-        f.addField("Ok with that", b.Checkbox(False,"Sure?", **commons))
-
+        filer = b.HSplit( 
+            b.FileSelect("./", self.load, pattern="*.py"),
+            self.code ,
+            sizes=[30,70],
+          )
+        
         tab = b.Tabs()
-        tab.addTab("Tab1", group1)
-        tab.addTab("Tab2", split)
-        tab.addTab("Tab3", table)
-        tab.addTab("Tab4", b.FileSelect(".", showFile,"*.py"))
-        tab.addTab("A form", f)
-        tab.selected = "Tab2"
+        tab.addTab("Tab one",fields)
+        tab.addTab("Tab two",filer)
+        tab.addTab("Tab Three","I'm working in background"+b.Progress())
+        
+        main = b.Box()
+        main <= b.Button("Push",_onclick=lambda o: self.action("button!") )
+        main <= Tag.a("See htbulma",_href="https://github.com/manatlan/htbulma", _target="_blank", _style="float:right")
+        main <= tab
+        
+        self <= nav + b.Section( main )
+        
+    def action(self,o=None):
+        self.toast.show(o or ";-)")
+    def showvalue(self,object):
+        self.toast.show(object.value)
+    def load(self,filename):
+        self.action(filename)
+        self.code.set( html.escape(open(filename).read()) )
+        
+if __name__=="__main__":
 
-        nav= b.Nav("HTag Demo")
-        nav.addEntry( "Page1", self.affmodal )
-        nav.addEntry( "exit", lambda: self.exit(), True )
+    # from htag.runners import *
+    
+    # GuyApp( Page ).run()
+    # PyWebWiew( Page ).run()
+    # BrowserStarletteHTTP( Page ).run()
+    # BrowserStarletteWS( Page ).run()
+    # BrowserHTTP( Page ).run()
+    # WebHTTP( Page ).run()
+    # ChromeApp( Page ).run()
 
-        self <= nav
-        self <= b.Section() <= tab
-
-    def affmodal(self):
-        self.mbox.show( MyTabs(_style="border:1px solid red") )
-
-    def afftoast(self):
-        self.toast.show( "Hello World", 1000 )
-
-    def onchange(self,obj):
-        print("++++++++++++++++++++++",obj)
-        self.toast.show( obj.value, 1000 )
-
-    def doit(self,obj):
-        # yield "a"
-        # yield "b"
-        print("=====+=========Ã¹*******",obj)
-
-# from htag.runners import *
-# GuyApp( Page ).run()
-# PyWebWiew( Page ).run()
-# BrowserStarletteHTTP( Page ).run()
-# BrowserStarletteWS( Page ).run()
-# BrowserHTTP( Page ).run()
-# WebHTTP( Page ).run()
-# ChromeApp( Page ).run()
-
-from htag.runners import AndroidApp
-AndroidApp( Page ).run()
+    from htag.runners import AndroidApp
+    AndroidApp( Page ).run()
