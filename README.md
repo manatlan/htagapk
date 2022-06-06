@@ -31,11 +31,11 @@ The app should start on your phone ...
 
 ## Github action
 
-The simplest one ! Click "Run workflow" button on this [Github Action](https://github.com/manatlan/htagapk/actions/workflows/build.yml). It will produce a "package" (zip containing the apk) in the "github action" > artifacts panel. (after 10 to 12 minutes)
+The simplest one ! Click the "Run workflow" button on this [Github Action](https://github.com/manatlan/htagapk/actions/workflows/build.yml). It will produce a "package" (zip containing the apk) in the "github action" > artifacts panel. (after 10 to 12 minutes)
 
 (thanks to the marvellous github action : https://github.com/ArtemSBulgakov/buildozer-action !)
 
-**`**NEXTSOON**`**
+
 
 ## Test the apk/online
 
