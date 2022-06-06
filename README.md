@@ -10,7 +10,7 @@ Your application must use the **AndroidApp** like this :
 
 ```python
 from htag.runners import AndroidApp
-AndroidApp( Page ).run()
+AndroidApp( App ).run()
 ```
 
 There are 2 recipes, to build the apk : **locally** or using **github action**
