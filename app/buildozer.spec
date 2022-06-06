@@ -8,10 +8,10 @@ source.dir = .
 source.include_exts = py,png,jpg
 
 # (str) Presplash of the application
-presplash.filename = %(source.dir)s/p4a/htag.png
+presplash.filename = %(source.dir)s/htag.png
 
 # (str) Icon of the application
-icon.filename = %(source.dir)s/p4a/htag.png
+icon.filename = %(source.dir)s/htag.png
 
 version = 0.1
 requirements = python3,kivy,tornado,htbulma,htag

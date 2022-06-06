@@ -69,13 +69,13 @@ if __name__=="__main__":
 
     # from htag.runners import *
     
-    # GuyApp( Page ).run()
-    # PyWebWiew( Page ).run()
-    # BrowserStarletteHTTP( Page ).run()
-    # BrowserStarletteWS( Page ).run()
-    # BrowserHTTP( Page ).run()
-    # WebHTTP( Page ).run()
-    # ChromeApp( Page ).run()
+    # GuyApp( App ).run()
+    # PyWebWiew( App ).run()
+    # BrowserStarletteHTTP( App ).run()
+    # BrowserStarletteWS( App ).run()
+    # BrowserHTTP( App ).run()
+    # WebHTTP( App ).run()
+    # ChromeApp( App ).run()
 
     from htag.runners import AndroidApp
-    AndroidApp( Page ).run()
+    AndroidApp( App ).run()
