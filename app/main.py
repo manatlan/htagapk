@@ -26,6 +26,7 @@ class App(Tag.body):
         nav.addEntry("mbox",    lambda: self.mbox.show("hello"))  # declare an entry in the nav bar
         nav.addEntry("confirm", lambda: self.mbox.confirm("Sure ?",ok=self.action))  # declare an entry in the nav bar
         nav.addEntry("prompt",  lambda: self.mbox.prompt("What is your name ?","",ok=self.action))  # declare an entry in the nav bar
+        nav.addEntry("EXIT",    lambda: self.exit())    # an entry, to be able to quit the android app ;-)
 
         self.select=1
         fields=b.Fields()
