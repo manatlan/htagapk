@@ -17,7 +17,7 @@ There are 2 recipes, to build the apk : **locally** or using **github action**
 
 ## Locally
 
-You'll need to have a linux host, and you will need to install [kivy](https://kivy.org/) and [buildozer](https://buildozer.readthedocs.io/en/latest/), and [adb tools](https://www.xda-developers.com/install-adb-windows-macos-linux/).
+You'll need to have a linux host, and you will need to install [kivy](https://kivy.org/) and [buildozer](https://buildozer.readthedocs.io/en/latest/), and [adb tools](https://www.xda-developers.com/install-adb-windows-macos-linux/). (from here, I assume that theses tools are installed, and well configured ... and `adb devices` show your phone, when pluggued)
 
 Download the repo, plug your phone (with a good usb cable), and in console:
 
