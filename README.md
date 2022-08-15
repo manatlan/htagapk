@@ -60,3 +60,9 @@ The simplest one ! Click the "Run workflow" button on this [Github Action](https
 
   main ideas: https://towardsdatascience.com/3-ways-to-convert-python-app-into-apk-77f4c9cd55af
 </details>
+
+## IRL apps
+
+ - [TriApp](https://github.com/manatlan/TriApp): a freely android clone of TriCount
+ - ...
+
