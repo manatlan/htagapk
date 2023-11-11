@@ -64,5 +64,6 @@ The simplest one ! Click the "Run workflow" button on this [Github Action](https
 ## IRL apps
 
  - [TriApp](https://github.com/manatlan/TriApp): a freely android clone of TriCount
+ - [MAAR](https://github.com/manatlan/maar) : a POC of a music player for android autoradio
  - ...
 
