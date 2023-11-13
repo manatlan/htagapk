@@ -27,7 +27,7 @@ jobs:
         run: |
            cd app
            mkdir .buildozer
-           docker run -v $(pwd)/.buildozer:/home/user/.buildozer -v $(pwd):/home/user/hostcwd mybuildozer android debug
+           sudo docker run -v $(pwd)/.buildozer:/home/user/.buildozer -v $(pwd):/home/user/hostcwd mybuildozer android debug
            mv bin/*.apk bin/app.apk
         
       # - name: Build with Buildozer
