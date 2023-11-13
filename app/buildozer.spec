@@ -18,12 +18,14 @@ requirements = python3,kivy,tornado,htbulma,htag
 
 orientation = portrait
 fullscreen = 0
-# android.archs = arm64-v8a
-android.archs = armeabi-v7a
+android.archs = arm64-v8a
+# android.archs = armeabi-v7a
 
 
 # (list) Permissions
 android.permissions = INTERNET
+
+android.accept_sdk_license = True
 
 # (str) Filename to the hook for p4a
 p4a.hook = p4a/hook.py
