@@ -12,9 +12,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install docker
+      - name: Install docker git
         run: |
-          apt install docker
+          sudo apt install docker git
           
       # - name: Build with Buildozer
       #   uses: ArtemSBulgakov/buildozer-action@v1
