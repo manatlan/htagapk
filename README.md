@@ -17,24 +17,13 @@ There are 2 recipes, to build the apk : **locally** or using **github action**
 
 ## Locally
 
-You'll need to have a linux host, and you will need to install [kivy](https://kivy.org/) and [buildozer](https://buildozer.readthedocs.io/en/latest/), and [adb tools](https://www.xda-developers.com/install-adb-windows-macos-linux/). (from here, I assume that theses tools are installed, and well configured ... and `adb devices` show your phone, when pluggued)
-
-Download the repo, plug your phone (with a good usb cable), and in console:
-
-```
-cd app
-buildozer android debug deploy run
-```
-
-The app should start on your phone ...
-
+You should use this method, with [buildozer docker image](/manatlan/maar/blob/main/buildozer_build.md)
 
 ## Github action
 
 The simplest one ! Click the "Run workflow" button on this [Github Action](https://github.com/manatlan/htagapk/actions/workflows/build.yml). It will produce a "package" (zip containing the apk) in the "github action" > artifacts panel. (after 10 to 12 minutes)
 
 (thanks to the marvellous github action : https://github.com/ArtemSBulgakov/buildozer-action !)
-
 
 
 ## Test the apk/online
