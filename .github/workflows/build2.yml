@@ -16,6 +16,12 @@ jobs:
         run: |
           sudo apt install docker git
           
+      - name: build a docker image
+        run: |
+           git clone https://github.com/kivy/buildozer.git
+           cd buildozer
+           docker build --tag=mybuildozer .
+        
       # - name: Build with Buildozer
       #   uses: ArtemSBulgakov/buildozer-action@v1
       #   id: buildozer
