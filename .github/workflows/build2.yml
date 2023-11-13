@@ -21,6 +21,14 @@ jobs:
            git clone https://github.com/kivy/buildozer.git
            cd buildozer
            docker build --tag=mybuildozer .
+           cd ..
+
+      - name: build the apk
+        run: |
+           cd app
+           mkdir .buildozer
+           docker run -v $(pwd)/.buildozer:/home/user/.buildozer -v $(pwd):/home/user/hostcwd mybuildozer android debug
+           mv bin/*.apk bin/app.apk
         
       # - name: Build with Buildozer
       #   uses: ArtemSBulgakov/buildozer-action@v1
@@ -29,8 +37,8 @@ jobs:
       #     workdir: ./app
       #     buildozer_version: stable
 
-      # - name: Upload artifacts
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: package
-      #     path: ${{ steps.buildozer.outputs.filename }}
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: package
+          path: bin/app.apk
