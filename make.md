@@ -1,6 +1,6 @@
 # make.py : a command line to build/install the apk
 
-It's a command line for the full process ! You will need a linux host where **docker**, **git**, **adb** & **pidcat** are availables. (you'll need to install them)
+It's a command line for the full process ! You will need a linux host (or a windows/wsl2) where **docker**, **git**, **adb** & **pidcat** are availables. (you'll need to install them)
 
 Give the "execution" rights to make.py :
 ```bash 
