@@ -17,7 +17,7 @@ There are 2 recipes, to build the apk : **locally** or using **github action**
 
 ## Locally
 
-You should use this method, with [buildozer docker image](https://github.com/manatlan/maar/blob/main/buildozer_build.md)
+You should use [make.py](make.md) !
 
 ## Github action
 
