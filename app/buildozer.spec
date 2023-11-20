@@ -14,7 +14,11 @@ presplash.filename = %(source.dir)s/htag.png
 icon.filename = %(source.dir)s/htag.png
 
 version = 0.1
+
+# requirements = Cython,kivy,tornado,htbulma,htag>=0.64.0
+#--------------------------------------------------------- https://github.com/ArtemSBulgakov/buildozer-action/issues/34
 requirements = Cython==0.29.33,kivy==2.2.0,tornado,htbulma,htag>=0.64.0
+#---------------------------------------------------------
 
 orientation = portrait
 fullscreen = 0
@@ -29,6 +33,10 @@ android.accept_sdk_license = True
 
 # (str) Filename to the hook for p4a
 p4a.hook = p4a/hook.py
+
+#--------------------------------------------------------- https://github.com/ArtemSBulgakov/buildozer-action/issues/34
+p4a.branch = release-2022.12.20
+#---------------------------------------------------------
 
 # iOS specific
 ios.kivy_ios_url = https://github.com/kivy/kivy-ios
