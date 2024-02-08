@@ -35,7 +35,8 @@ android.accept_sdk_license = True
 p4a.hook = p4a/hook.py
 
 #--------------------------------------------------------- https://github.com/ArtemSBulgakov/buildozer-action/issues/34
-p4a.branch = release-2022.12.20
+# p4a.branch = release-2022.12.20
+p4a.branch = v2023.09.16
 #---------------------------------------------------------
 
 # iOS specific
