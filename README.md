@@ -2,6 +2,13 @@
 
 <img src="app/htag.png" width="100" height="100">
 
+**IMPORTANT 2024/02/28**
+All theses recipes will only work for htag < 0.90.0 !!!
+The new recipe, for htag>=0.90.0 will come soon (and will use the buildozer/p4a "webview" bootstrap, in place of the old bootstrap sdl2/kivy). Because it works a lot better, and a lot simpler !
+**IMPORTANT 2024/02/28**
+
+
+
 This is the **build apk method** for an [HTag app](https://github.com/manatlan/htag)
 
 It uses the [AndroidApp runner](https://manatlan.github.io/htag/runners/#androidapp), based on [kivy](https://kivy.org/) and [tornado](https://www.tornadoweb.org/en/stable/).
