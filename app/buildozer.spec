@@ -17,7 +17,7 @@ version = 0.1
 
 # requirements = Cython,kivy,tornado,htbulma,htag>=0.64.0
 #--------------------------------------------------------- https://github.com/ArtemSBulgakov/buildozer-action/issues/34
-requirements = Cython==0.29.33,kivy==2.2.0,tornado,htbulma,htag>=0.64.0
+requirements = Cython==0.29.33,kivy==2.2.0,tornado,htbulma,htag<0.90.0
 #---------------------------------------------------------
 
 orientation = portrait
