@@ -1,11 +1,12 @@
 # make.py : a command line to build/install the apk
 
-It's a command line for the full process ! You will need a linux host (or a windows/wsl2) where **docker**, **git**, **adb** & **pidcat** are availables. (you'll need to install them)
+It's a command line for the full process ! You will need a linux host (or a windows/wsl2) where **python3**, **docker**, **git**, **adb** & **pidcat** are availables. (you'll need to install them)
 
-Give the "execution" rights to make.py :
-```bash 
-chmod +x ./make.py
-```
+If you have an unique folder/project : it will use this unique folder/project.
+
+If you have multiple folder (ex: 'app1', 'app2' folders) : you must provide the folder name
+(ex: `./make.py app1 test`, `./make.py app1 build`, ... etc ...)
+
 
 # `./make.py test`
 Test your app in your current browser (good practice before building ;-))

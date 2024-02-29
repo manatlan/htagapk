@@ -1,6 +1,6 @@
 from htag import Tag
 import htbulma as b
-import asyncio,html
+import html
 
 """
 And here : the ultimate goal of htag ...
@@ -9,6 +9,7 @@ You can develop your own htag's components, and create your own UI Toolkit.
 And start to build complex app, here is an example using "htbulma"
 (a set of components, I use/develop on an other side )
 
+NOTE : this project use a lot a deprecated htbulma components ;-) TODO: fix that ;-)
 """
 
 class App(Tag.body):
@@ -67,16 +68,7 @@ class App(Tag.body):
         self.code.set( html.escape(open(filename).read()) )
         
 if __name__=="__main__":
+    PORT = 12458    #!!! IMPORTANT !!! same as in buildozer.spec (see key "p4a.port") 
 
-    # from htag.runners import *
-    
-    # GuyApp( App ).run()
-    # PyWebWiew( App ).run()
-    # BrowserStarletteHTTP( App ).run()
-    # BrowserStarletteWS( App ).run()
-    # BrowserHTTP( App ).run()
-    # WebHTTP( App ).run()
-    # ChromeApp( App ).run()
-
-    from htag.runners import AndroidApp
-    AndroidApp( App ).run()
+    from htag.runners import Runner
+    Runner( App, port=PORT, interface=0 ).run()

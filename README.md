@@ -2,64 +2,70 @@
 
 <img src="app/htag.png" width="100" height="100">
 
-**IMPORTANT 2024/02/28**
-All theses recipes will only work for htag < 0.90.0 !!!
-The new recipe, for htag>=0.90.0 will come soon (and will use the buildozer/p4a "webview" bootstrap, in place of the old bootstrap sdl2/kivy). Because it works a lot better, and a lot simpler !
-**IMPORTANT 2024/02/28**
+This is the **build apk method** for an [HTag app](https://github.com/manatlan/htag) (using htag >= 0.90.0)
+
+Don't be afraid, it's really simple (thanks to buildozer docker system !!)
+
+**Note** : 
+
+ - Since htag>=0.90, this recipe has changed (no more github action), and no more `AndroidApp`'htag special runner ! **htag** is the only dependancy !!!
+ - Currently, it only exposes a way to build an apk for arm devices (think smartphone). But it's easy to build an "Android TV" app too (hack app/p4a/hook.py & buildozer.spec files) ... In the near future : i'll give an example here.
+ - The previous mechanim used the 'sdl2' bootstrap with kivy (so kivy was needed). Now it uses the 'webview' bootstrap (no more kivy needed!), and it's a lot more natural (apk is smaller, speedier, simpler and 'back' button is supported OOTB)
 
 
+## Recipe :
 
-This is the **build apk method** for an [HTag app](https://github.com/manatlan/htag)
+You should use [make.py](make.md), which is a script/commandline to help you in the build/install/debug process (using the buildozer tool).
 
-It uses the [AndroidApp runner](https://manatlan.github.io/htag/runners/#androidapp), based on [kivy](https://kivy.org/) and [tornado](https://www.tornadoweb.org/en/stable/).
+First of all, ensure that theses tools are installed on your computer :
+**python3**, **docker**, **git**, **adb** & **pidcat** (depending on your distribution, it's just `sudo apt-get install python3 docker git adb pidcat`)
 
-Your application must use the **AndroidApp** like this :
+You'll have to know basics adb commmands (`adb connect`, `adb devices`, ...)
 
-```python
-from htag.runners import AndroidApp
-AndroidApp( App ).run()
+Open a console and do :
+```bash
+$ git clone https://github.com/manatlan/htagapk.git
+$ cd htagapk
 ```
 
-There are 2 recipes, to build the apk : **locally** or using **github action**
+Give execution permission to `make.py`
+```bash
+$ chmod +x ./make.py
+```
 
-## Locally
+See if it works ;-)
+```bash
+$ ./make.py
+```
 
-You should use [make.py](make.md) !
+Build the apk
+```bash
+$ ./make.py build
+```
 
-## Github action
+Plug your device, and ensure that it's connected (using `adb` tool)
+```bash
+$ adb devices
+```
+(no trouble to connect a wifi android device, it works the same (if the device accept incoming connexion))
 
-The simplest one ! Click the "Run workflow" button on this [Github Action](https://github.com/manatlan/htagapk/actions/workflows/build.yml). It will produce a "package" (zip containing the apk) in the "github action" > artifacts panel. (after 10 to 12 minutes)
+You can install the apk, and run it, using :
+```bash
+$ ./make.py install
+```
 
-(thanks to the marvellous github action : https://github.com/ArtemSBulgakov/buildozer-action !)
+If you want to see the live log
+```bash
+$ ./make.py debug
+```
 
 
-## Test the apk/online
 
-  * [You can test the generated apk on appetize.io !](https://appetize.io/app/e8wmjett21ewfb737x152c9bfr?device=pixel6&osVersion=12.0&scale=75). Or you can download the apk (find it in a "package.zip", downloadable from github action builds), and test on your phone.
-  * You can test, the same app, in a web context : https://htag.glitch.me/?app=c99
-  * And, you can test it, in a pyscript context (with **PyScript runner**) : https://raw.githack.com/manatlan/htag/main/examples/pyscript_htbulma.html (just pure html !(no server side))
+## IRL others htag (<0.90) apps repo
 
-<details>
-  <summary>Urls inspirations</summary>
-  
-  help for modify androidmanifest : https://github.com/ArtemSBulgakov/buildozer-action/issues/20
-  
-  github actions doc : https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses
+Deprecated, coz using the old way, with htag < 0.90 !!!
 
-  P4A docs : https://github.com/Android-for-Python/Android-for-Python-Users#changing-buildozerspec
-
-  Buidozer-action: https://github.com/ArtemSBulgakov/buildozer-action
-
-  example : https://github.com/kaustubhgupta/KivyMLApp
-
-  clear text trouble : https://manatlan.github.io/guy/howto_build_apk_android/#authorize-clear-text-traffic-in-your-apk
-
-  main ideas: https://towardsdatascience.com/3-ways-to-convert-python-app-into-apk-77f4c9cd55af
-</details>
-
-## IRL apps
-
- - [TriApp](https://github.com/manatlan/TriApp): a freely android clone of TriCount
- - [MAAR](https://github.com/manatlan/maar) : a POC of a music player for android autoradio
+ - [TriApp](https://github.com/manatlan/TriApp): a freely android clone of TriCount **(htag < 0.90)**
+ - [MAAR](https://github.com/manatlan/maar) : a POC of a music player for android autoradio **(htag < 0.90)**
  - ...
 
