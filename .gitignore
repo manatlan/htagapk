@@ -131,3 +131,5 @@ dmypy.json
 # buildozer outputs
 app/.buildozer
 app/bin
+app2/.buildozer
+app2/bin

@@ -9,7 +9,6 @@ Don't be afraid, it's really simple (thanks to buildozer docker system !!)
 **Note** : 
 
  - Since htag>=0.90, this recipe has changed (no more github action), and no more `AndroidApp`'htag special runner ! **htag** is the only dependancy !!!
- - Currently, it only exposes a way to build an apk for arm devices (think smartphone). But it's easy to build an "Android TV" app too (hack app/p4a/hook.py & buildozer.spec files) ... In the near future : i'll give an example here.
  - The previous mechanim used the 'sdl2' bootstrap with kivy (so kivy was needed). Now it uses the 'webview' bootstrap (no more kivy needed!), and it's a lot more natural (apk is smaller, speedier, simpler and 'back' button is supported OOTB)
 
 
@@ -37,10 +36,18 @@ See if it works ;-)
 ```bash
 $ ./make.py
 ```
+It will show you that you have 2 project/folders (app & app2)
+
+- "app" is an android smartphone app
+- "app2" is an android tv app
+
+(More to come)
+
+So you'll have to define which one you want to test (in the folowing, we will take 'app" )
 
 Build the apk
 ```bash
-$ ./make.py build
+$ ./make.py app build
 ```
 
 Plug your device, and ensure that it's connected (using `adb` tool)
@@ -51,12 +58,12 @@ $ adb devices
 
 You can install the apk, and run it, using :
 ```bash
-$ ./make.py install
+$ ./make.py app install
 ```
 
 If you want to see the live log
 ```bash
-$ ./make.py debug
+$ ./make.py app debug
 ```
 
 

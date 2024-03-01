@@ -4,8 +4,8 @@ It's a command line for the full process ! You will need a linux host (or a wind
 
 If you have an unique folder/project : it will use this unique folder/project.
 
-If you have multiple folder (ex: 'app1', 'app2' folders) : you must provide the folder name
-(ex: `./make.py app1 test`, `./make.py app1 build`, ... etc ...)
+If you have multiple folder (ex: 'app', 'app2' folders) : you must provide the folder name
+(ex: `./make.py app2 test`, `./make.py app2 build`, ... etc ...)
 
 
 # `./make.py test`
