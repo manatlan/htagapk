@@ -16,6 +16,9 @@ Don't be afraid, it's really simple (thanks to buildozer docker system !!)
 
 You should use [make.py](make.md), which is a script/commandline to help you in the build/install/debug process (using the buildozer tool).
 
+**IMPORTANT** : currently there is a bug 
+https://github.com/kivy/buildozer/issues/1798, you'll have to build the docker 'mybuildozer' on your own ;-( ... 2024/5/4
+
 First of all, ensure that theses tools are installed on your computer :
 **python3**, **docker**, **git**, **adb** & **pidcat** (depending on your distribution, it's just `sudo apt-get install python3 docker git adb pidcat`)
 
