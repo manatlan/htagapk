@@ -41,9 +41,10 @@ def build(app:str, mode="debug"):
     if not is_docker_image_exists():
         assert subprocess.call("which git",shell=True)==0,"install git !"
         assert subprocess.call("which docker",shell=True)==0,"install docker !"
+        # originam is bugged with ubu/latest ... so use previous LTS (from my fork)
         os.system(f"""
 cd /tmp
-git clone https://github.com/kivy/buildozer.git
+git clone https://github.com/manatlan/buildozer.git
 cd buildozer
 docker build --tag={DOCKER} .
 """)
