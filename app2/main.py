@@ -87,4 +87,4 @@ if __name__=="__main__":
     PORT = 12459    #!!! IMPORTANT !!! same as in buildozer.spec (see key "p4a.port") 
 
     from htag.runners import Runner
-    Runner( App, port=PORT, interface=0 ).run()
+    Runner( App, port=PORT ).run()
